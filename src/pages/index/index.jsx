@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import styles from './index.less'
 
-function page({ dispatch, count }) {
+const page = ({ dispatch, count, addLoading }) => {
 
   useEffect(() => {
     dispatch({
@@ -16,7 +16,7 @@ function page({ dispatch, count }) {
 
   return (
     <View className={styles.test}>
-      <AtButton type='primary' circle={true} onClick={() => { dispatch({ type: 'common/add' }) }}>+</AtButton>
+      <AtButton loading={addLoading} type='primary' circle={true} onClick={() => { dispatch({ type: 'common/add' }) }}>+</AtButton>
       <AtButton type='primary' circle={true} onClick={() => { dispatch({ type: 'common/subsub' }) }}>-</AtButton>
       <View><Text>{count}</Text></View>
       <View><Text>Hello, World</Text></View>
@@ -25,5 +25,8 @@ function page({ dispatch, count }) {
   )
 }
 
-export default connect(({ common }) => ({ ...common }))(page)
+export default connect(({ common, loading }) => ({
+  ...common,
+  addLoading: loading.effects['common/add'],
+}))(page)
 
