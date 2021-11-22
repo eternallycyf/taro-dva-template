@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { View, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import { useEffect } from 'react'
+import Form from '../form'
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import styles from './index.less'
@@ -21,6 +22,8 @@ const page = ({ dispatch, count, addLoading }) => {
       <View><Text>{count}</Text></View>
       <View><Text>Hello, World</Text></View>
       <Text className={styles.txt}>Hello world!</Text>
+
+      <Form />
     </View>
   )
 }
