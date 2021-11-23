@@ -3,6 +3,7 @@ import { View, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import { useEffect } from 'react'
 import Form from '../form'
+import Taro from '@tarojs/taro'
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import styles from './index.less'
@@ -24,6 +25,12 @@ const page = ({ dispatch, count, addLoading }) => {
       <Text className={styles.txt}>Hello world!</Text>
 
       <Form />
+
+      <AtButton type='primary'
+        onClick={() => { Taro.navigateTo({ url: '/pages/echarts/index' }) }}>
+        Charts Demo
+      </AtButton>
+
     </View>
   )
 }
