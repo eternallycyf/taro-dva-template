@@ -8,5 +8,9 @@ export default {
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
+  },
+  usingComponents: {
+    'ec-canvas': '@/components/ec-canvas/ec-canvas'
   }
+
 }

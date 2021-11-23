@@ -1,13 +1,8 @@
 import React from 'react'
 import { View } from '@tarojs/components'
-import * as echarts from '@/components/ec-canvas/echarts'
 import styles from './index.less'
-
-function initChart(canvas, width, height) {
-  const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height
-  })
+import BaseCharts from '@/components/basecharts'
+const Echarts = () => {
   const model = {
     yCates: ['Saturday', 'Friday', 'Thursday',
       'Wednesday', 'Tuesday', 'Monday',
@@ -74,15 +69,9 @@ function initChart(canvas, width, height) {
       }
     }]
   }
-  canvas.setChart(chart)
-  chart.setOption(option)
-  return chart
-}
-
-const Echarts = () => {
   return (
     <View className={styles.echarts}>
-      <ec-canvas id='mychart-dom-area' canvas-id='mychart-area' ec={{ onInit: initChart }}></ec-canvas>
+      <BaseCharts option={option} type={'mychart-area'} />
     </View>
   )
 }
