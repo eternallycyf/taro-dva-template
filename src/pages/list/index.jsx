@@ -5,6 +5,7 @@ import styles from "./index.less";
 import VirtualList from '@tarojs/components/virtual-list'
 import Taro, { usePullDownRefresh, useReachBottom } from "@tarojs/taro";
 import { AtLoadMore } from 'taro-ui'
+
 const page = ({
   dispatch,
   list,

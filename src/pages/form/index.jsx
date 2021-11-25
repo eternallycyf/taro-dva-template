@@ -10,6 +10,7 @@ import {
   FormSwitch,
   FormCheckboxGroup
 } from 'form-taro3-react'
+import 'form-taro3-react/dist/styles/index.scss'
 import styles from './index.less'
 
 function Form() {

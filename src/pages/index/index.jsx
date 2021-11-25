@@ -3,9 +3,11 @@ import { View, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import { useEffect } from 'react'
 import Taro from '@tarojs/taro'
-
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import styles from './index.less'
+import "taro-ui/dist/style/components/load-more.scss";
+import "taro-ui/dist/style/components/activity-indicator.scss";
+import "taro-ui/dist/style/components/button.scss";
 
 const page = ({ dispatch, count, addLoading }) => {
 

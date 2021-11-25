@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import { Provider } from 'react-redux'
-import 'form-taro3-react/dist/styles/index.scss'
 import './app.less'
 
 import dva from './utils/dva'

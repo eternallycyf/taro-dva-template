@@ -59,6 +59,16 @@ const config = {
         path.resolve(__dirname, '..', 'src/components/ec-canvas/echarts.js')
       ]
     },
+    enableSourceMap: false,
+    optimizeMainPackage: {
+      enable: true
+    },
+    terser: {
+      enable: true,
+      config: {
+
+      }
+    },
     webpackChain(chain, webpack) {
       chain.merge({
         optimization: {
