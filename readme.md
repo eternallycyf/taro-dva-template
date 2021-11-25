@@ -34,8 +34,8 @@ yarn build:weapp
   - post请求默认contentType为"application/json"，请求方法第三个参数为自定义contentType
 - [taro-ui](https://taro-ui.jd.com/#/docs/introduction)
   - UI库css没有自动按需加载配置，需要根据判断是引入全部css还是根据组件手动引入css
-- [无限长列表](https://nervjs.github.io/taro/docs/virtual-list](https://nervjs.github.io/taro/docs/virtual-list)
-- [性能优化](https://nervjs.github.io/taro/docs/optimized](https://nervjs.github.io/taro/docs/optimized)
+- [无限长列表](https://nervjs.github.io/taro/docs/virtual-list)
+- [性能优化](https://nervjs.github.io/taro/docs/optimized)
 - [echarts](https://github.com/ecomfe/echarts-for-weixin)
   - [可定制主题](https://echarts.apache.org/zh/builder.html)
 
