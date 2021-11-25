@@ -1,5 +1,5 @@
 const path = require('path')
-
+let echartChunkName = 'echarts'
 const config = {
   projectName: 'demo',
   date: '2021-7-5',
@@ -33,7 +33,6 @@ const config = {
       pxtransform: {
         enable: true,
         config: {
-
         }
       },
       url: {
@@ -49,7 +48,44 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
+    csso: {
+      enable: true,
+      config: {
+      }
+    },
+    compile: {
+      exclude: [
+        path.resolve(__dirname, '..', 'src/components/ec-canvas/echarts.js')
+      ]
+    },
+    webpackChain(chain, webpack) {
+      chain.merge({
+        optimization: {
+          splitChunks: {
+            cacheGroups: {
+              [echartChunkName]: {
+                name: echartChunkName,
+                priority: 50,
+                test: /components[\\/]ec-canvas[\\/]echarts.js/,
+                // test(module) {
+                //   return /components[\\/]ec-canvas[\\/]echarts.js/.test(
+                //     module.resource
+                //   );
+                // },
+              },
+            },
+          },
+        },
+      });
+    },
+    addChunkPages(pages, pagesNames) {
+      pages.set("pages/echarts/index", [echartChunkName]);
+    },
+    commonChunks(commonChunks) {
+      commonChunks.push(echartChunkName);
+      return commonChunks;
+    },
   },
   h5: {
     publicPath: '/',
@@ -68,7 +104,8 @@ const config = {
         }
       }
     }
-  }
+  },
+
 }
 
 module.exports = function (merge) {

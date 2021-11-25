@@ -70,9 +70,11 @@ const Echarts = () => {
     }]
   }
   return (
-    <View className={styles.echarts}>
-      <BaseCharts option={option} type={'mychart-area'} />
-    </View>
+    <>
+      <View className={styles.echarts}>
+        <BaseCharts option={option} type={'mychart-area'} />
+      </View>
+    </>
   )
 }
 
