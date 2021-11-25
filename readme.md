@@ -1,7 +1,13 @@
 ### 简介
-taro3 react版本 集成dva taroUI echarts mock
-适用于 微信小程序 或 h5
-修改文件实时更新 已封装基本拦截器(taro.request)
+- taro3 
+- react版本 
+- 集成 
+  - dva 
+  - taroUI 
+  - echarts 
+  - mock
+- 适用于 微信小程序 或 h5
+- 修改文件实时更新 已封装基本拦截器(taro.request)
 
 ### 安装 运行 打包
 ```shell
