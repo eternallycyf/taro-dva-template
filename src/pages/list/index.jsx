@@ -27,6 +27,7 @@ const page = ({
     })
   }, [])
 
+  // 渲染行
   const Row = React.memo(({ id, index, style, data }) => {
     return (
       <View id={id} >
@@ -35,7 +36,7 @@ const page = ({
     );
   })
 
-
+  // 请求新的数据的方法
   const PullRefreshRequest = async () => {
     Taro.startPullDownRefresh()
     setStatus('loading')
@@ -51,12 +52,12 @@ const page = ({
     }
   }
 
+  // 下拉刷新生命周期
   usePullDownRefresh(() => {
-    console.log('onPullDownRefresh')
-  })
-
-  useReachBottom(() => {
-    console.log('onReachBottom')
+    Taro.startPullDownRefresh()
+    PullRefreshRequest().then(() => {
+      Taro.stopPullDownRefresh()
+    })
   })
 
 
@@ -78,15 +79,6 @@ const page = ({
             noMoreText="没有数据了"
           />
         }
-        onScroll={({ scrollDirection, scrollOffset }) => {
-          // scrollOffset >= (list.length-height/itemSize)*itemSize - 滚动提前距离
-          if (
-            scrollDirection === 'forward' &&
-            scrollOffset >= ((list.length - 7) * 100)
-          ) {
-            PullRefreshRequest()
-          }
-        }}
       >
         {Row}
       </VirtualList>

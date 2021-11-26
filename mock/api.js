@@ -145,7 +145,7 @@ export default {
         total: 22,
       }
     };
-    await waitTime(3000);
+    await waitTime(2000);
     res.send({
       code: 200,
       // data: {
