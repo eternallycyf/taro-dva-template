@@ -19,6 +19,12 @@ const config = {
     '@/pages': path.resolve(__dirname, '..', 'src/pages'),
   },
   plugins: ['@tarojs/plugin-mock'],
+  // uglify: {
+  //   enable: true,
+  //   config: {
+  //     // 配置项同 https://github.com/mishoo/UglifyJS2#minify-options
+  //   }
+  // },
   defineConstants: {
   },
   copy: {

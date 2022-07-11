@@ -1,6 +1,6 @@
 import { create } from 'dva-core';
 import createLoading from 'dva-loading';
-import Taro from '@tarojs/taro'
+import Taro from '@tarojs/taro';
 
 let app;
 let store;
@@ -12,7 +12,7 @@ function createApp(opt) {
   app.use(createLoading({}));
 
   // 注入model
-  if (!global.registered) opt.models.forEach(model => app.model(model));
+  if (!global.registered) opt.models.forEach((model) => app.model(model));
   global.registered = true;
   app.start();
 
@@ -21,14 +21,15 @@ function createApp(opt) {
   app.getStore = () => store;
   app.use({
     onError(err) {
+      // console.log(err, 'reer')
       err.preventDefault();
       Taro.showToast({
-        title: err?.message,
+        title: err?.message || '系统错误',
         icon: 'none',
-        duration: 2000
-      })
-    }
-  })
+        duration: 2000,
+      });
+    },
+  });
 
   // 设置dispatch
   dispatch = store.dispatch;
@@ -41,5 +42,5 @@ export default {
   createApp,
   getDispatch() {
     return app.dispatch;
-  }
-}
+  },
+};
