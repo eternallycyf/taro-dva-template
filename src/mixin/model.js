@@ -1,7 +1,7 @@
 import * as service from './service';
 
 export default {
-  namespace: 'common',
+  namespace: 'index',
   state: {},
   reducers: {
     save(state, { payload }) {

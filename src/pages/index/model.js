@@ -1,7 +1,7 @@
 import * as service from './service';
 
 export default {
-  namespace: 'common',
+  namespace: 'index',
   state: {
     count: 0,
   },
@@ -11,26 +11,26 @@ export default {
     },
   },
   effects: {
-    *add(_, {put, select}) {
-      let { count } = yield select(state => state.common);
+    *add(_, { put, select }) {
+      let { count } = yield select((state) => state.index);
       yield put({
         type: 'save',
-        payload: { count: count + 1 }
-      })
+        payload: { count: count + 1 },
+      });
     },
     *subsub(_, { put, select }) {
-      let { count } = yield select(state => state.common);
+      let { count } = yield select((state) => state.index);
       yield put({
         type: 'save',
-        payload: { count: count - 1 }
-      })
+        payload: { count: count - 1 },
+      });
     },
     *fetchDemo(_, { put, call }) {
-      let data = yield call(service.useInfo, {a: 123})
+      let data = yield call(service.useInfo, { a: 123 });
       yield put({
         type: 'save',
-        payload: {info: data}
-      })
-    }
-  }
+        payload: { info: data },
+      });
+    },
+  },
 };

@@ -1,4 +1,4 @@
-import common from '@/pages/index/model';
-import virtualList from '@/pages/list/model';
+import index from '@/pages/index/model';
+import list from '@/pages/list/model';
 
-export default [common, virtualList];
+export default [index, list];
